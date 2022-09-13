@@ -28,10 +28,10 @@
     </head>
 
     <body>
-        <header>
+        <!-- <header>
             <img src="/assets/html_css_js.png" />
             <h1>Rock Paper Scissors</h1>
-        </header>
+        </header> -->
 
         <main>
             <h1>Rock Paper Scissors</h1>
@@ -49,6 +49,25 @@
                 <li id="computerScore">456</li>
                 <li></li>
             </ul>
+            <h3>You win or lose or whatever</h3>
+            <div id="cPlay-img" class="results" style="display: none">
+                <img id="computer-choice" src="./assets/" alt="" />
+            </div>
+
+            <div id="player-img" class="player-results">
+                <img src="/assets/rock.png" alt="" />
+                <img src="/assets/paper.png" alt="" />
+                <img src="/assets/scissors.png" alt="" />
+            </div>
+
+            <div id="player-buttons" class="button-play">
+                <button>Rock</button>
+                <button>Paper</button>
+                <button>Scissors</button>
+            </div>
+            <div id="play-againBtn" class="play-again" style="display: none">
+                <button>Play again!</button>
+            </div>
         </main>
     </body>
 </html>

@@ -1,5 +1,6 @@
 h1,
-h2 {
+h2,
+h3 {
     display: flex;
     justify-content: center;
 }
@@ -20,4 +21,42 @@ h2 {
 #playerScore,
 #computerScore {
     border: 2px solid black;
+}
+
+.results {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+.hidden {
+    display: none;
+}
+
+.playerRPS {
+    display: grid;
+    grid-template-columns: 3fr;
+    justify-content: center;
+}
+
+.playerRPS li {
+    display: flex;
+    justify-content: center;
+}
+
+.player-results {
+    display: flex;
+    justify-content: center;
+}
+
+.button-play {
+    display: flex;
+    justify-content: center;
+    padding: 30px;
+}
+
+.play-again {
+    display: flex;
+    justify-content: center;
+    padding: 30px;
 }

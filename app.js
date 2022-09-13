@@ -14,3 +14,7 @@ function loadPage() {}
 
 /* Run page load code */
 loadPage();
+
+let cPlay = 'paper';
+const computerChoice = document.getElementById('computer-choice');
+computerChoice.src = 'assets/' + cPlay + '.png';
