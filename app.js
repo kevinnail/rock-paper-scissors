@@ -2,6 +2,8 @@
 
 /* State */
 
+let gameState = 'guess';
+
 const cPlayImgDiv = document.getElementById('cPlay-img-div'); //for showing/ hiding cplay-img div
 const cPlayImg = document.getElementById('computer-choiceImg'); //for selecting R/P/S img for computer
 
@@ -27,8 +29,16 @@ function loadPage() {}
 // event listeners
 
 /* Run page load code */
-loadPage();
+function restartGame() {
+    cPlayImgDiv.classList.add('hidden');
+    playAgainBtn.classList.add('hidden');
+    playerRockImg.classList.remove('hidden');
+    playerPaperImg.classList.remove('hidden');
+    playerScissorsImg.classList.remove('hidden');
+}
 
+loadPage();
+restartGame();
 // let cPlay = 'scissors';
 // const computerChoice = document.getElementById('computer-choice');
 // computerChoice.src = 'assets/' + cPlay + '.png';
