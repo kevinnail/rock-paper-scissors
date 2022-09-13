@@ -47,6 +47,7 @@ h3 {
 .player-results {
     display: flex;
     justify-content: center;
+    gap: 20px;
 }
 
 .button-play {
