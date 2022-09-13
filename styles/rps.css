@@ -1,0 +1,23 @@
+h1,
+h2 {
+    display: flex;
+    justify-content: center;
+}
+
+#scoreboard,
+#scoreboardLabels {
+    display: grid;
+    grid-template-columns: 5fr 1fr 1fr 5fr;
+    justify-content: center;
+}
+
+#scoreboard li,
+#scoreboardLabels li {
+    display: flex;
+    justify-content: center;
+}
+
+#playerScore,
+#computerScore {
+    border: 2px solid black;
+}
