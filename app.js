@@ -7,8 +7,8 @@ let gameState = 'guess';
 let guess = ''; // for holding player's choice
 let comGuessArray = ['rock', 'paper', 'scissors']; // array for computer's play
 let comGuess = getRandomItem(comGuessArray); //picks random numboer in index of computer plays
-console.log(comGuess);
-const cPlayImgDiv = document.getElementById('cPlay-img-div'); //for showing/ hiding cplay-img div ****DO I NEED THIS?
+
+// const cPlayImgDiv = document.getElementById('cPlay-img-div'); //for showing/ hiding cplay-img div ****DO I NEED THIS?
 const cPlayImg = document.getElementById('computer-choiceImg'); //for selecting R/P/S img for computer
 const gameComment = document.getElementById('game-comment');
 
@@ -26,12 +26,13 @@ const playAgainBtn = document.getElementById('play-again-btn'); // play again bu
 /* Actions */
 function loadPage() {
     restartGame();
+    displayScoreBoard();
 }
 
 function makePlay(playerChoice) {
     gameState = 'results';
     guess = playerChoice;
-    comGuess;
+    comGuess = getRandomItem(comGuessArray);
     displayChoice();
     displayComChoice();
 }
@@ -81,6 +82,9 @@ function displayComChoice() {
         }
     }
 }
+
+function displayScoreBoard() {}
+
 // event listeners
 
 rockBtn.addEventListener('click', () => {
@@ -93,15 +97,20 @@ scissorsBtn.addEventListener('click', () => {
     makePlay('scissors');
 });
 
+playAgainBtn.addEventListener('click', () => {
+    restartGame();
+});
+
 /* Run page load code */
 function restartGame() {
     gameState = 'guess';
     cPlayImg.classList.add('hidden');
     playAgainBtn.classList.add('hidden');
+    playerBtns.classList.remove('hidden');
     playerRockImg.classList.remove('hidden');
     playerPaperImg.classList.remove('hidden');
     playerScissorsImg.classList.remove('hidden');
-    gameComment.textContent = "Let's play!";
+    gameComment.textContent = "Let's play! ";
 }
 
 loadPage();
