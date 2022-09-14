@@ -1,0 +1,62 @@
+h1,
+h2,
+h3 {
+    display: flex;
+    justify-content: center;
+}
+
+#scoreboard,
+#scoreboardLabels {
+    display: grid;
+    grid-template-columns: 5fr 1fr 1fr 5fr;
+    justify-content: center;
+}
+
+#scoreboard li,
+#scoreboardLabels li {
+    display: flex;
+    justify-content: center;
+}
+
+#playerScore,
+#computerScore {
+    border: 2px solid black;
+}
+
+.results {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+.playerRPS {
+    display: grid;
+    grid-template-columns: 3fr;
+    justify-content: center;
+}
+
+.playerRPS li {
+    display: flex;
+    justify-content: center;
+}
+
+.player-results {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.button-play {
+    display: flex;
+    justify-content: center;
+    padding: 30px;
+}
+
+.play-again {
+    display: flex;
+    justify-content: center;
+    padding: 30px;
+}
+.hidden {
+    display: none;
+}
