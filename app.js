@@ -7,10 +7,11 @@ let gameState = 'guess';
 let guess = ''; // for holding player's choice
 let comGuessArray = ['rock', 'paper', 'scissors']; // array for computer's play
 let comGuess = getRandomItem(comGuessArray); //picks random numboer in index of computer plays
-let playerScore = document.getElementById('player-score');
-let comScore = document.getElementById('computer-score');
+let playerScoreDiv = document.getElementById('player-score');
+let comScoreDiv = document.getElementById('computer-score');
+let playerScore = 0;
+let comScore = 0;
 
-// const cPlayImgDiv = document.getElementById('cPlay-img-div'); //for showing/ hiding cplay-img div ****DO I NEED THIS?
 const cPlayImg = document.getElementById('computer-choiceImg'); //for selecting R/P/S img for computer
 const gameComment = document.getElementById('game-comment');
 
@@ -35,10 +36,10 @@ function makePlay(playerChoice) {
     gameState = 'results';
     guess = playerChoice;
     comGuess = getRandomItem(comGuessArray);
-    // console.log(comGuess + ' is what the computer chooses in makePlay()');
     displayChoice();
     displayComChoice();
     checkWinner(guess, comGuess);
+    displayScoreBoard();
 }
 // }
 
@@ -68,7 +69,6 @@ function displayChoice() {
         }
     }
 }
-//////////////////////////////////////////////////////////////////this is where I'm at, it's not firing every time...?//////////////////////
 function displayComChoice() {
     if (gameState === 'results') {
         if (comGuess === 'rock') {
@@ -88,47 +88,52 @@ function displayComChoice() {
 }
 
 function checkWinner(playerChoice, computerChoice) {
-    // console.log(gameState);
-    // console.log('in checkWinner, playerChoice = ' + playerChoice);
-    // console.log('in computerChoice, playerChoice = ' + computerChoice);
     switch (playerChoice) {
         case 'rock':
             if (computerChoice === 'paper') {
                 comScore++;
-                console.log('you lose!');
+                gameComment.textContent = 'You lose!';
+                playerRockImg.classList.add('lose-color');
             } else if (computerChoice === 'scissors') {
                 playerScore++;
-                console.log('you win!');
+                gameComment.textContent = 'You win!';
             } else {
-                console.log("it's a tie!");
+                gameComment.textContent = "It's a tie!";
             }
             break;
         case 'paper':
             if (computerChoice === 'scissors') {
                 comScore++;
-                console.log('you lose!');
+                gameComment.textContent = 'You lose!';
             } else if (computerChoice === 'rock') {
                 playerScore++;
-                console.log('you win!');
+                gameComment.textContent = 'You win!';
             } else {
-                console.log("it's a tie!");
+                gameComment.textContent = "It's a tie!";
             }
             break;
         case 'scissors':
             if (computerChoice === 'rock') {
                 comScore++;
-                console.log('you lose!');
+                gameComment.textContent = 'You lose!';
             } else if (computerChoice === 'paper') {
                 playerScore++;
-                console.log('you win!');
+                gameComment.textContent = 'You win!';
             } else {
-                console.log("it's a tie!");
+                gameComment.textContent = "It's a tie!";
             }
-            break;
     }
 }
 
-function displayScoreBoard() {} //////////////////////////////////////////////////////////////////////////
+function displayScoreBoard() {
+    if (gameState === 'guess') {
+        comScoreDiv.textContent = 0;
+        playerScoreDiv.textContent = 0;
+    } else {
+        comScoreDiv.textContent = comScore;
+        playerScoreDiv.textContent = playerScore;
+    }
+}
 
 // event listeners
 
@@ -159,6 +164,3 @@ function restartGame() {
 }
 
 loadPage();
-// let cPlay = 'scissors';
-// const computerChoice = document.getElementById('computer-choice');
-// computerChoice.src = 'assets/' + cPlay + '.png';
