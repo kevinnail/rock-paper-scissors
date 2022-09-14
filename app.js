@@ -5,9 +5,9 @@ import { getRandomItem } from '/utils.js';
 
 let gameState = 'guess';
 let guess = ''; // for holding player's choice
-let comGuessArray = ['rock', 'paper', 'scissors'];
-let comGuess = 'rock'; //getRandomItem(comGuessArray);
-
+let comGuessArray = ['rock', 'paper', 'scissors']; // array for computer's play
+let comGuess = getRandomItem(comGuessArray); //picks random numboer in index of computer plays
+console.log(comGuess);
 const cPlayImgDiv = document.getElementById('cPlay-img-div'); //for showing/ hiding cplay-img div ****DO I NEED THIS?
 const cPlayImg = document.getElementById('computer-choiceImg'); //for selecting R/P/S img for computer
 const gameComment = document.getElementById('game-comment');
@@ -31,7 +31,7 @@ function loadPage() {
 function makePlay(playerChoice) {
     gameState = 'results';
     guess = playerChoice;
-    comGuess = 'rock'; //************************************* */
+    comGuess;
     displayChoice();
     displayComChoice();
 }
@@ -67,12 +67,15 @@ function displayChoice() {
 function displayComChoice() {
     if (gameState === 'results') {
         if (comGuess === 'rock') {
+            cPlayImg.src = './assets/' + comGuess + '.png';
             cPlayImg.classList.remove('hidden');
             playAgainBtn.classList.remove('hidden');
         } else if (comGuess === 'paper') {
+            cPlayImg.src = './assets/' + comGuess + '.png';
             cPlayImg.classList.remove('hidden');
             playAgainBtn.classList.remove('hidden');
         } else if (comGuess === 'scissors') {
+            cPlayImg.src = './assets/' + comGuess + '.png';
             cPlayImg.classList.remove('hidden');
             playAgainBtn.classList.remove('hidden');
         }
