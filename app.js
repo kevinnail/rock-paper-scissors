@@ -3,6 +3,7 @@
 /* State */
 
 let gameState = 'guess';
+let guess = ''; // for holding player's choice
 
 const cPlayImgDiv = document.getElementById('cPlay-img-div'); //for showing/ hiding cplay-img div
 const cPlayImg = document.getElementById('computer-choiceImg'); //for selecting R/P/S img for computer
@@ -19,8 +20,6 @@ const playerBtns = document.getElementById('player-buttons'); //for showing/ hid
 
 const playAgainBtn = document.getElementById('play-again-btn'); // play again button
 
-let guess = ''; // for holding player's choice
-
 /* Actions */
 function loadPage() {
     restartGame();
@@ -29,7 +28,7 @@ function loadPage() {
 function makePlay(playerChoice) {
     gameState = 'results';
     guess = playerChoice;
-    console.log('hi');
+    displayChoice();
 }
 // }
 
@@ -39,6 +38,26 @@ function makePlay(playerChoice) {
 
 // get DOM
 // display
+function displayChoice() {
+    if (gameState === 'results') {
+        if (guess === 'rock') {
+            playerRockImg.classList.remove('hidden');
+            playerPaperImg.classList.add('hidden');
+            playerScissorsImg.classList.add('hidden');
+            playerBtns.classList.add('hidden');
+        } else if (guess === 'paper') {
+            playerRockImg.classList.add('hidden');
+            playerPaperImg.classList.remove('hidden');
+            playerScissorsImg.classList.add('hidden');
+            playerBtns.classList.add('hidden');
+        } else if (guess === 'scissors') {
+            playerRockImg.classList.add('hidden');
+            playerPaperImg.classList.add('hidden');
+            playerScissorsImg.classList.remove('hidden');
+            playerBtns.classList.add('hidden');
+        }
+    }
+}
 // event listeners
 
 rockBtn.addEventListener('click', () => {
